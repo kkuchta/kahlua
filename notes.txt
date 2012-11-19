@@ -1,0 +1,20 @@
+User
+    - name
+    - passhash
+
+Site
+    - owner
+    - admins
+    - styles ?
+    - post
+
+Style
+    - page_name
+    - sheet
+
+Post
+    - title
+    - body
+    - location
+    - rating
+
