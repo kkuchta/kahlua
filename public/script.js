@@ -17,6 +17,7 @@ $( function(){
 
     controls.bindEvents();
     controls.restoreState();
+    addImages(10);
 } );
 
 function addImages( countToLoad ){
