@@ -10,9 +10,9 @@ end
 get '/id/?:id?' do
   id = params[:id] ? params[:id] : randomID
   if(!validID?(id))
-    "invalid id " + id
+    "invalid id"
   else
-    'id='+id
+    id
   end
 end
 

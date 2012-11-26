@@ -5,6 +5,15 @@
       Random Imgur
 
   %body
-    #images
+    %ul#controls
+      %li
+        %input.kittens{ type: 'checkbox' } Kittens
+      %li
+        %input.reload{ type: 'button', value:'Reload' } 
+    #images{ style: 'left:150px' }
+      #endOfPage
+        Woo, here!
+
     %script{ type: 'text/javascript', src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' }
+    %script{ type: 'text/javascript', src: 'jquery.masonry.min.js' }
     %script{ type: 'text/javascript', src: 'script.js' }
