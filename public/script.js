@@ -1,4 +1,7 @@
 var COLUMN_WIDTH = 150;
+
+
+
 $( function(){
     $(document).on('mouseenter', '.imgurImage', null, hoverHandler); 
     $('#images').masonry({
@@ -154,7 +157,6 @@ var controls = (function(){
     var $container = $('#controls');
 
     var $kittenButton = $container.find('.kittens');
-    var $reloadButton = $container.find('.reload');
 
     var saveState = function(){
         console.log('saving control state');
@@ -175,11 +177,6 @@ var controls = (function(){
 
         // Sets up the click events
         bindEvents: function(){
-            $reloadButton.click(function(){
-                console.log("reloading");
-                $('.imgurImage').remove();
-                addImages(5);
-            });
             $kittenButton.change(function(){
                 saveState();
             });
