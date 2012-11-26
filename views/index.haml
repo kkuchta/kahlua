@@ -1,13 +1,16 @@
 !!! 5
 %html
   %head
+    %link{ href:'bootstrap/css/bootstrap.css', rel:'stylesheet' }
+    %link{ href:'style.css', rel:'stylesheet' }
     %title
       Random Imgur
 
   %body
-    %ul#controls
-      %li
-        %input.kittens{ type: 'checkbox' } Kittens
+    %form.form-inline.well#controls
+      %label.checkbox
+        %input.kittens{ type: 'checkbox' } Kitten mode
+      %a.help-block{ href:'/' } Reload to take effect
 
     #image-container
       #images{ style: 'left:150px' }

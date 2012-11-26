@@ -7,15 +7,13 @@ $( function(){
     });
 
     $('#bottomOfImages').waypoint(function(){
-        //alert("here");
-        addImages(10);
+        addImages(5);
     },{
         offset: '100%'
     });
 
     controls.bindEvents();
     controls.restoreState();
-    //addImages(10);
 } );
 
 function addImages( countToLoad ){
@@ -38,6 +36,7 @@ function addImages( countToLoad ){
         countLoaded++;
         if( countLoaded >= countToLoad ){
             console.log('finished!');
+            $.waypoints('refresh');
         }
     };
     for( var i = 0; i < countToLoad; i++ ){
