@@ -1,13 +1,21 @@
 var COLUMN_WIDTH = 150;
 $( function(){
-
     $(document).on('mouseenter', '.imgurImage', null, hoverHandler); 
     $('#images').masonry({
-        columnWidth : COLUMN_WIDTH
+        columnWidth : COLUMN_WIDTH,
+        isAnimated: true
     });
+
+    $('#bottomOfImages').waypoint(function(){
+        //alert("here");
+        addImages(10);
+    },{
+        offset: '100%'
+    });
+
     controls.bindEvents();
     controls.restoreState();
-    addImages(5);
+    //addImages(10);
 } );
 
 function addImages( countToLoad ){
@@ -25,6 +33,7 @@ function addImages( countToLoad ){
             $img.attr('src',kittenURL);
         }
         setImageSize( $img );
+        $('#images').masonry( 'appended', $img, true );
 
         countLoaded++;
         if( countLoaded >= countToLoad ){
