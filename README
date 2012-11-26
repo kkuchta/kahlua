@@ -1,0 +1,7 @@
+This is an imgur random image loader.  I'm not sure why this is interesting, but it started as a 10-line script that I got carried away with.  That's what side projects are for, though.  :)
+
+TODO:
+- Inifnite loading
+- Make some more parameters user-adjustable
+- Remove the now-pointless ruby stuff (this started as an excuse to play with sinatra but I ended up just making it all client-side)
+- Reorganize.  Maybe try out ember or backbone.
