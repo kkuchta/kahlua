@@ -1,7 +1,5 @@
 var COLUMN_WIDTH = 150;
 
-
-
 $( function(){
     $(document).on('mouseenter', '.imgurImage', null, hoverHandler); 
     $('#images').masonry({
