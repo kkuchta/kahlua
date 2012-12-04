@@ -72,9 +72,15 @@ function hoverHandler( e ){
     $imgClone.mouseout(killClone);
     $('#images').append($imgClone);
 
-    debugger
-    var width = Math.min($imgClone.prop('width'), 900);
-    console.log('width=' + width);
+    var cloneWidth = Math.min($imgClone.prop('width'), 900);
+    var smallWidth = $img.prop('width');
+    var imagesDivWidth = $('#images').width();
+
+    if( position.left + cloneWidth > imagesDivWidth ){
+        console.log( 'expand left' );
+        var newLeft = position.left - (cloneWidth - smallWidth);
+        $imgClone.css('left', newLeft);
+    }
 }
 
 function setImageSize( $img ){
