@@ -1,3 +1,4 @@
+// Width of the columns of images, which will be resized to be a multiple of this
 var COLUMN_WIDTH = 150;
 
 $( function(){
@@ -8,14 +9,14 @@ $( function(){
     });
 
     $('#bottomOfImages').waypoint(function(){
-        addImages(5);
+        addImages(10);
     },{
         offset: '100%'
     });
 
     controls.bindEvents();
     controls.restoreState();
-    addImages(10);
+    //addImages(10);
 } );
 
 function addImages( countToLoad ){
@@ -61,14 +62,19 @@ function hoverHandler( e ){
     $imgClone.css('position','absolute');
     $imgClone.attr('src',$img.attr('src'));
     var position = $img.position();
+
     $imgClone.css('left', position.left);
     $imgClone.css('top', position.top);
-    $imgClone.css('max-height', 2000);
-    $imgClone.css('max-width', 2000);
+    $imgClone.css('max-height', 900);
+    $imgClone.css('max-width', 900);
 
     $img.css('visibility','hidden');
     $imgClone.mouseout(killClone);
     $('#images').append($imgClone);
+
+    debugger
+    var width = Math.min($imgClone.prop('width'), 900);
+    console.log('width=' + width);
 }
 
 function setImageSize( $img ){
@@ -103,7 +109,7 @@ function fixWidth( width, gridWidth, maxGridLines ){
 
 // Gets a valid jquery image object
 function getValidImage( callback ){
-    var url = getRandomUrl();
+    var url = 'http://i.imgur.com/' + makeid() + '.jpg';
     var $img = $("<img class='imgurImage' src='" + url + "'>");
 
     // Hide the image but still add it to the body so the height/width load
@@ -133,11 +139,10 @@ function getValidImage( callback ){
     });
 }
 
-function getRandomUrl(){
-    return 'http://i.imgur.com/' + makeid() + '.jpg';
-}
-
-// From http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+/**
+ * Generates a random 5 character alphanumeric string (upper and lower case)
+ * From http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+ */
 function makeid()
 {
     var text = "";
@@ -150,7 +155,6 @@ function makeid()
     //console.log( 'id=' + text );
     return text;
 }
-
 
 var controls = (function(){
     var $container = $('#controls');
